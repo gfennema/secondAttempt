@@ -38,6 +38,11 @@
     border: none;
   }
   
+  .navbar-brand {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+  }
+  
   .navbar-default .navbar-brand,
   .navbar-default .navbar-nav > li > a {
     color: white;
