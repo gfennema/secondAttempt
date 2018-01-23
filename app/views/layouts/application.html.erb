@@ -30,18 +30,19 @@
     <div class="collapse navbar-collapse" id="main-nav-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "AboutUs", about_path %></li>
-        <li><%= link_to "ContactUs", new_contact_path %></li>        
+        <li><%= link_to "ContactUs", 'ContactUs' %></li>        
         
       </ul>
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
 
-  <div="container">
-    <%= flash.each do |type, msg| %>
+ <div class="container">
+    <% flash.each do |type, msg| %>
       <%= content_tag :div, msg, class: "alert alert-#{type}" %>
     <% end %>
   </div>
+ 
   <%= yield %>
 
   </body>
