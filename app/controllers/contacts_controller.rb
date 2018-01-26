@@ -3,7 +3,6 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
   
-  
   def create
     @contact = Contact.new(contact_params) #{name: 'tootsie', email: 'rolldog@example.com', comments: 'woof'}
     if @contact.save
