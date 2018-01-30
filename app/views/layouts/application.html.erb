@@ -28,11 +28,14 @@
 
 
     <div class="collapse navbar-collapse" id="main-nav-collapse">
+        <div class="nav navbar-nav navbar-right">
+          <a href="/users/sign_in" class="btn btn-default navbar-btn">LogIn</a>
+          <a href="/users/sign_up" class="btn btn-default navbar-btn">SignUp</a>
+        </div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "AboutUs", about_path %></li>
-        <li><%= link_to "ContactUs", 'ContactUs' %></li>        
-        
-      </ul>
+        <li><%= link_to "ContactUs", 'ContactUs' %></li>
+        </ul>
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
