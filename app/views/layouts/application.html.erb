@@ -29,12 +29,12 @@
 
     <div class="collapse navbar-collapse" id="main-nav-collapse">
         <div class="nav navbar-nav navbar-right">
-          <a href="/users/sign_in" class="btn btn-default navbar-btn">LogIn</a>
-          <a href="/users/sign_up" class="btn btn-default navbar-btn">SignUp</a>
+          <%= link_to "LogIn", new_user_session_path, class: "btn btn-default navbar-btn" %>
+          <%= link_to "SignUp", new_user_registration_path, class: "btn btn-default navbar-btn" %>
         </div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "AboutUs", about_path %></li>
-        <li><%= link_to "ContactUs", 'ContactUs' %></li>
+        <li><%= link_to "ContactUs", new_contact_path %></li>
         </ul>
     </div><!-- /.navbar-collapse -->
   </div>
