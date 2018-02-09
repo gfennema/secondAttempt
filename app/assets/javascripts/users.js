@@ -1,9 +1,10 @@
 /* global $, Stripe */
 
 // Document Ready
-$(document).on('turbo:links', function(){
+$(document).on('turbolinks:load', function(){
   var theForm = $('#pro_form');
-  var submitBtn = $('#form-submit-btn');
+  var submitBtn = $('#form-signup-btn');
+  
   // Set Stripe Public Key
   Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content') );
   
@@ -14,7 +15,7 @@ $(document).on('turbo:links', function(){
     submitBtn.val("Processing").prop('disabled', true);
   })
   
-  // When user clicks for submit btn
+  // When user clicks form submit btn
   submitBtn.click(function(event){
   // Prevent default behaviour
     event.preventDefault();
