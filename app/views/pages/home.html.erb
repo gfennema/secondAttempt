@@ -4,23 +4,45 @@
 </div>
 <div class="container home-signup-link">
   <div class="row">
-    <div class="col-md-6">
-      <div class="well">
-        <h3 class="text-center">BasicMembership</h3>
-        <h4 class="text-center">Sign up for free and get started on having your GraphicDesign needs realized!</h4>
-        <br/>
-        <%= link_to "Sign Up for a Basic Membership", new_user_registration_path(plan: @basic_plan.id), class: 'btn btn-danger btn-lg btn-block' %>
+    <% if user_signed_in? %>
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">Your Profile</h2>
+          <% if current_user.profile %>
+            <%= link_to "Edit Your Profile", "#", class: 'btn btn-default btn-lg btn-block' %>
+            <%= link_to "View Your Profile", user_path(current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+            <% else %>
+              <p class="text-center">Create your profile, and share your information with TheCommunity!</p>
+            <%= link_to "Create Your Profile", new_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+            <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="well">
-        <h3 class="text-center">ProMembership</h3>
-        <h4 class="text-center">Sign up for $10/month and get access to the community and contact information!</h4>
-        <br/>
-        <%= link_to "Sign Up for a Pro Membership", new_user_registration_path(plan: @pro_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">TheCommunity</h2>
+          <p class="text-center">Visit TheCommunity to meet other designers, entrepreneurs, and investors!</p>
+          <%= link_to "TheCommunity", "#", class: 'btn btn-default btn-lg btn-block' %>
+        </div>
       </div>
-    </div>
+    
+    <% else %>
+      <div class="col-md-6">
+        <div class="well">
+          <h3 class="text-center">BasicMembership</h3>
+          <h4 class="text-center">Sign up for free and get started on having your GraphicDesign needs realized!</h4>
+          <br/>
+          <%= link_to "Sign Up for a Basic Membership", new_user_registration_path(plan: @basic_plan.id), class: 'btn btn-danger btn-lg btn-block' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="well">
+          <h3 class="text-center">ProMembership</h3>
+          <h4 class="text-center">Sign up for $10/month and get access to the community and contact information!</h4>
+          <br/>
+          <%= link_to "Sign Up for a Pro Membership", new_user_registration_path(plan: @pro_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <%= link_to "Create Your Profile!", new_user_profile_path(user_id: current_user.id) if user_signed_in? %>
 </div>
   
